@@ -9,24 +9,12 @@ def pascal_triangle(n):
     @args: n integer
     Return: list of integers representing the Pascal's triangle of n
     """
-    if n <= 0:
-        return []
-
-    res = [[1]]
-    for i in range(1, n):
-        line = [1]
-        for k in range(1, i):
-            line.append(comb(i - 1, k - 1) + comb(i - 1, k))
-        line.append(1)
-        res.append(line)
+    res = list()
+    for i in range(n):
+        row = [1]
+        if i > 0:
+            for j in range(1, i):
+                row.append(res[i - 1][j - 1] + res[i - 1][j])
+            row.append(1)
+        res.append(row)
     return res
-
-
-def fact(n):
-    if n <= 0:
-        return 1
-    return n * fact(n - 1)
-
-
-def comb(n, p):
-    return int(fact(n) / (fact(p) * fact(n - p)))
