@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 const request = require('request');
 const id = parseInt(process.argv[2]);
 const URL = `https://swapi-api.alx-tools.com/api/films/${id}/`;
