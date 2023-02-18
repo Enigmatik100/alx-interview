@@ -16,6 +16,3 @@ def canUnlockAll(boxes):
                 tobe_visited.append(key)
 
     return len(unlocked) == len(boxes)
-
-
-
