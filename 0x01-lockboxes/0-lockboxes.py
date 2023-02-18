@@ -4,15 +4,18 @@
 
 def canUnlockAll(boxes):
     """Lock boxes problem"""
-    visited = {0}
-    stack = [0]
+    unlocked = {0}
+    tobe_visited = [0]
 
-    while stack:
-        index = stack.pop()
-        if index < len(boxes):
-            keys = boxes[index]
-            for key in keys:
-                if key not in visited:
-                    visited.add(key)
-                    stack.append(key)
-    return len(visited) == len(boxes)
+    while tobe_visited:
+        index = tobe_visited.pop()
+        keys = boxes[index]
+        for key in keys:
+            if key < len(boxes) and key not in unlocked:
+                unlocked.add(key)
+                tobe_visited.append(key)
+
+    return len(unlocked) == len(boxes)
+
+
+
