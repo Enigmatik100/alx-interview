@@ -8,7 +8,10 @@ def canUnlockAll(boxes):
     stack = [0]
 
     while stack:
-        keys = boxes[stack.pop()]
+        index = stack.pop()
+        if index >= len(boxes):
+            return False
+        keys = boxes[index]
         for key in keys:
             if key not in visited:
                 visited.add(key)
